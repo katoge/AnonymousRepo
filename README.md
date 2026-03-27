@@ -10,3 +10,14 @@ The exact coverage collection commands used for the three repositories in Table 
 - `coreutils.txt` for Coreutils 9.7
 
 The final Table 1 columns are: repository name, source-file count, average SLOC per file, average cyclomatic complexity, average call-graph depth, average fan-in/fan-out, and GCOV line coverage.
+
+
+## Table 2
+
+To reproduce Table 2, run `Statistics.py` inside each subdirectory under `Table2/`, where the script and input files are already colocated. Execute this for `Table2/HumanEval/O0`–`O3` and `Table2/ExeBench/O0`–`O3`.
+
+Example:
+```bash
+cd Table2/HumanEval/O3
+python3 Statistics.py > output.txt
+``
