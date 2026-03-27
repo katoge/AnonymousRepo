@@ -1,0 +1,14 @@
+Invalid C Syntax: 59.20%
+Function Prototype Recovery Bugs: 26.60%
+Arithmetic Logic Bugs: 3.08%
+Variable Recovery Bugs: 2.42%
+Variable Name Inconsistency: 2.26%
+Function Omission: 1.76%
+Control-Flow Recovery Bugs: 1.27%
+Literal Substitution Error: 0.94%
+Logic Transformation Error: 0.55%
+Type Recovery Bugs: 0.55%
+String Literal Formatting Error: 0.55%
+Duplicate Case Label Error: 0.39%
+Infinite Loop Error: 0.28%
+Array Index Calculation Error: 0.17%

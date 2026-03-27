@@ -1,0 +1,10 @@
+Invalid C Syntax: 56.62%
+Function Prototype Recovery Bugs: 37.79%
+Variable Recovery Bugs: 2.25%
+Arithmetic Logic Bugs: 1.19%
+Control-Flow Recovery Bugs: 0.68%
+Function Omission: 0.55%
+Type Recovery Bugs: 0.38%
+Duplicate Case Label Error: 0.30%
+Array Index Calculation Error: 0.13%
+Literal Substitution Error: 0.13%

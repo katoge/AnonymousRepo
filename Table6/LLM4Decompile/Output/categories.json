@@ -1,0 +1,16 @@
+{
+  "Type Recovery Bugs": "Bugs where the decompiler’s type‑inference mis‑annotates or truncates data (e.g., signed→unsigned, 32‑bit→16‑bit), breaking semantics because the recovered type is wrong.",
+  "Variable Recovery Bugs": "Missing / phantom variables, Duplicate declarations or uninitialised reads that produce undefined behaviour.",
+  "Control-Flow Recovery Bugs": "Mis-reconstruction of high‑level control structures-branches become reachable/unreachable or are reordered—because the recovered CFG is wrong or later optimisations mis-handle it.",
+  "Invalid C Syntax": "Invalid C Syntax that will not even compile. Illegal operations like -> dereferencing a non-pointer, not properly enclosed scopes, code abrupty ending, etc.",
+  "Function Prototype Recovery Bugs": "Errors in reconstructing function signatures—missing or extra parameters, wrong argument types or return type—that stem from mis‑analysed stack‑based call sites.",
+  "Arithmetic Logic Bugs": "Errors in decompiled arithmetic operations or logic that alter the intended computation.",
+  "Function Omission": "The decompiler fails to recover the function body, resulting in a placeholder or empty function.",
+  "String Literal Formatting Error": "Errors in reconstructing string literals, such as incorrect escape sequences or formatting issues.",
+  "Variable Name Inconsistency": "Errors where variable names are incorrectly translated, leading to potential confusion or misinterpretation of the code.",
+  "Infinite Loop Error": "Errors where the decompiler generates an infinite loop or repeated code block due to misinterpretation of the original code structure.",
+  "Literal Substitution Error": "Errors where literal values are incorrectly substituted or hardcoded, altering the intended dynamic behavior of the code.",
+  "Duplicate Case Label Error": "Errors where case labels in a switch statement are duplicated, leading to redundant or incorrect case handling.",
+  "Array Index Calculation Error": "Errors where array index calculations are incorrect, leading to potential out-of-bounds access or incorrect data manipulation.",
+  "Logic Transformation Error": "Errors where the decompiled logic is transformed into a different algorithm, altering the original intent and behavior."
+}
