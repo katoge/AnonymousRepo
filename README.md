@@ -98,3 +98,7 @@ python3 decompiler_bug_finder.py
 ```
 
 The final category assignments are written to output.jsonl, and the category percentages reported in Table 6 are written to statistics.txt.
+
+## Table 7
+
+Table 7 is provided directly via `validation_summary.json`, `validation_summary.csv`, and the LaTeX-ready `validation_table_rows.tex`, while `sampled_cases.jsonl` and `raw_verdicts.jsonl` allow reviewers to inspect the underlying sampled cases and individual validation decisions.
