@@ -1,3 +1,5 @@
+This README including the helper scripts to simplify life for our reviewers was created with ChatGPT.
+
 ## Table 1
 
 To reproduce Table 1, first compute repository-level complexity statistics with `repo_metrics.py` over the target C repositories. The script analyzes `.c` and `.h` files and reports file counts, average SLOC per file, average cyclomatic complexity, average call-graph depth, and average fan-in/fan-out.
@@ -50,3 +52,13 @@ python3 hamming_distance.py
 ```
 
 Then drag and drop the two matching cleaned JSONL files for the same optimization level, e.g. function_logs_a_O0.jsonl.cleaned and function_logs_l_O0.jsonl.cleaned.
+
+
+## Table 4
+
+To reproduce Table 4, go to `Table4/` and run:
+
+```bash
+python3 Statistics2.py > output.txt
+```
+Statistics2.py traverses all decompiler/repository subdirectories, reads each local function_logs.jsonl, and reports the number of tests, number of compilations, number of passes, compile ratio, and pass ratio for every case.
