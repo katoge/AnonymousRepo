@@ -1,0 +1,24 @@
+
+	2001  git clone -b openssl-3.0.15 --depth 1 https://github.com/openssl/openssl.git
+	 2002  cd openssl/
+	 2003  mkdir build-gcov
+	 2004  does export CC=
+	 2005  export CC=gcc
+	 2006  export CFLAGS="-O0 -g --coverage"
+	 2007  export CXXFLAGS="-O0 -g --coverage"
+	 2008  export LDFLAGS="--coverage"
+	 2009  ./Configure --prefix="$PWD/build-gcov/install" linux-x86_64
+	 2010  make -j"$(nproc)"
+	 2011  find . -name '*.gcda' -delete
+	 2012  make test
+	 2013  gcovr -r . --filter '.*\.(c|h)$' --txt-summary
+	 2014  pip install gcovr
+	 2015  gcovr -r . --filter '.*\.(c|h)$' --txt-summary
+
+
+	------------------------------------------------------------------------------
+	TOTAL                                     228326   150630    66%
+	------------------------------------------------------------------------------
+	lines: 66.0% (150630 out of 228326)
+	functions: 76.2% (13911 out of 18250)
+	branches: 53.4% (77709 out of 145554)

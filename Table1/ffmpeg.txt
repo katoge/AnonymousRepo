@@ -1,0 +1,28 @@
+wget https://ffmpeg.org/releases/ffmpeg-7.1.3.tar.xz
+tar -xf ffmpeg-7.1.3.tar.xz
+cd ffmpeg-7.1.3/
+
+export CC=gcc
+export CFLAGS="-O0 -g --coverage"
+export CXXFLAGS="-O0 -g --coverage"
+export LDFLAGS="--coverage"
+
+# Point this to your local FATE sample directory
+export FATE_SAMPLES="$PWD/fate-suite"
+
+./configure \
+  --prefix="$PWD/build-gcov/install" \
+  --disable-optimizations \
+  --disable-stripping \
+  --samples="$FATE_SAMPLES"
+
+make -j"$(nproc)"
+
+find . -name '*.gcda' -delete
+
+make fate
+
+pip install gcovr
+
+gcovr -r . --filter '.*\.(c|h)$' --txt-summary \
+  --merge-mode-functions=merge-use-line-min

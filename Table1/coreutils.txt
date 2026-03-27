@@ -1,0 +1,30 @@
+wget https://ftp.gnu.org/gnu/coreutils/coreutils-9.7.tar.xz
+tar -xf coreutils-9.7.tar.xz
+cd coreutils-9.7/
+
+export CC=gcc
+export CFLAGS="-O0 -g --coverage"
+export CXXFLAGS="-O0 -g --coverage"
+export LDFLAGS="--coverage"
+
+./configure --prefix="$PWD/build-gcov/install"
+make -j"$(nproc)"
+
+find . -name '*.gcda' -delete
+
+make check
+
+pip install gcovr
+
+
+python3 -m gcovr -r .   --filter '.*\.(c|h)$'   --exclude '.*conftest.*'   --exclude '.*a-conftest.*'   --gcov-ignore-errors=source_not_found   --gcov-ignore-errors=no_working_dir_found   --txt-summary
+
+
+
+
+------------------------------------------------------------------------------
+TOTAL                                      45526    34570    75%
+------------------------------------------------------------------------------
+lines: 75.9% (34570 out of 45526)
+functions: 82.2% (2176 out of 2647)
+branches: 66.0% (20559 out of 31158)
