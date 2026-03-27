@@ -62,3 +62,24 @@ To reproduce Table 4, go to `Table4/` and run:
 python3 Statistics2.py > output.txt
 ```
 Statistics2.py traverses all decompiler/repository subdirectories, reads each local function_logs.jsonl, and reports the number of tests, number of compilations, number of passes, compile ratio, and pass ratio for every case.
+
+
+## Table 5
+
+To reproduce Table 5, enter each decompiler/optimization directory under `Table5/` and first compute the code-similarity metrics from the local `function_logs.jsonl`, `edit_distances.txt`, and `c_trivial_ngrams.json` files:
+
+```bash
+cd Table5/LLM4Decompile/O3
+python3 tmp.py
+```
+
+This generates function_metrics.txt, which contains per-function values and a final AVERAGE line. Then run:
+```
+python3 Statistics.py > output.txt
+```
+Use the similarity metrics from function_metrics.txt and the summary statistics from output.txt to fill Table 5. Repeat this for both decompilers (ANGR, LLM4Decompile) across all optimization levels (O0–O3).
+
+
+`tmp.py` is configured to read `function_logs.jsonl`, `edit_distances.txt`, and `c_trivial_ngrams.json`, then write the computed metrics to `function_metrics.txt`.
+`Statistics.py` reads the local `edit_distances.txt` and prints aggregate statistics including similarity, CodeBERTScore, CodeBLEU, CrystalBLEU, and CorpusBLEU.
+`function_metrics.txt` contains the metric rows plus a final `AVERAGE` line used as the aggregate output for each directory.
