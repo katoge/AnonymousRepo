@@ -83,3 +83,18 @@ Use the similarity metrics from function_metrics.txt and the summary statistics 
 `tmp.py` is configured to read `function_logs.jsonl`, `edit_distances.txt`, and `c_trivial_ngrams.json`, then write the computed metrics to `function_metrics.txt`.
 `Statistics.py` reads the local `edit_distances.txt` and prints aggregate statistics including similarity, CodeBERTScore, CodeBLEU, CrystalBLEU, and CorpusBLEU.
 `function_metrics.txt` contains the metric rows plus a final `AVERAGE` line used as the aggregate output for each directory.
+
+
+## Table 6
+
+To reproduce Table 6, run the bug-classification pipeline twice in `Table6/`.
+
+In the first pass, `decompiler_bug_finder.py` discovers and stores the category set in `categories.json`. In the second pass, rerun the script with this fixed category set to obtain stable classifications and final summary statistics.
+
+Example:
+```bash
+python3 decompiler_bug_finder.py
+python3 decompiler_bug_finder.py
+```
+
+The final category assignments are written to output.jsonl, and the category percentages reported in Table 6 are written to statistics.txt.
